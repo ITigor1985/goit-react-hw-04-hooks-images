@@ -19,18 +19,20 @@ export function App (){
   const [largeImageURL, setLargeImageURL]=useState("");
   const [alt, setAlt]=useState("");
   
+  
+
   useEffect(() =>{
     if (!query) {
       return;
     }
-    
+    getImagesData();
     if(page > 1){
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
       });
     }
-    getImagesData();
+    
   },[query, page])
 
   useEffect(() => {window.addEventListener('keydown', cleanEventListener);})
@@ -74,7 +76,7 @@ export function App (){
   };
 
   const handleLoadMoreClick = () => {
-    setPage(page+1); 
+    setPage(page+1);     
     console.log(page)
   };
 
