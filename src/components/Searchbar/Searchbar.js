@@ -15,9 +15,9 @@ function SearchBar({onSubmit}){
       alert("Enter image title");
       return;
     }
-
+  
     onSubmit(query);
-
+  }
     return (
       <header className="searchbar">
         <form className="searchForm" onSubmit={handleSubmit}>
@@ -34,7 +34,7 @@ function SearchBar({onSubmit}){
         </form>
       </header>
     );
-  };
+  
 }
 
     
