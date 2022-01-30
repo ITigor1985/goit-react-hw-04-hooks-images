@@ -24,7 +24,7 @@ export function App (){
       return;
     }
     getImagesData();
-    if(page > 2){
+    if(page > 1){
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
