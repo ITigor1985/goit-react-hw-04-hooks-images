@@ -24,12 +24,14 @@ export function App() {
       try {
         setIsLoading(true);
         const { hits, totalHits } = await getImages(query, page);
+
         if (totalHits === 0) {
           alert('Nothing found');
           setIsLoading(false);
           setCurrentHitsPerPage(null);
           return;
         }
+
         const images = hits.map(({ id, largeImageURL, tags, webformatURL }) => {
           return { id, largeImageURL, tags, webformatURL };
         });
