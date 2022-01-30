@@ -23,15 +23,17 @@ export function App (){
     if (!query) {
       return;
     }
-    getImagesData();
+    
     if(page > 1){
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
       });
     }
-  },[query])
+    getImagesData();
+  },[query, page])
 
+  useEffect(() => {window.addEventListener('keydown', cleanEventListener);})
 
   const handleFormSubmit = (query) => {
     setQuery(query);
@@ -56,9 +58,7 @@ export function App (){
         return [...prevState, ...images];
       });
       setCurrentHitsPerPage(hits.length);
-      setPage((prevState) =>{
-        return (prevState + 1)
-      })     
+          
 
     } catch (error) {
       console.log(error);
@@ -74,7 +74,8 @@ export function App (){
   };
 
   const handleLoadMoreClick = () => {
-    getImagesData();
+    setPage(page+1); 
+    console.log(page)
   };
 
  const modalOpen = (moduleUrl, moduleAlt, event) => {
